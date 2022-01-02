@@ -1,0 +1,18 @@
+string encode(string src)
+{     
+    int n=src.size();
+    string ans="";
+    int i=0;
+    while(i<n){
+        char x=src[i];
+        ans+=src[i];
+        i++;
+        int cnt=1;
+        while(i<n && src[i]==x){
+            cnt++;
+            i++;
+        }
+        ans+=to_string(cnt);
+    }
+    return ans;
+}  
