@@ -1,0 +1,22 @@
+vector<vector<string> > Anagrams(vector<string>& list) {
+        vector<vector<string> > ans;
+        int n=list.size();
+        unordered_map<string , vector<string> > map;
+        string y=list[0];
+        sort(list[0].begin(),list[0].end());
+        map[list[0]]={y};
+        for(int i=1;i<n;i++){
+            string x=list[i];
+            sort(list[i].begin(),list[i].end());
+            if(map.count(list[i])){
+                map[list[i]].push_back(x);
+            }
+            else
+                map[list[i]]={x};
+        }
+        
+        for(auto it : map){
+            ans.push_back(it.second);
+        }
+        return ans;
+    }
